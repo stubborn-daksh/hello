@@ -1,23 +1,18 @@
 const http = require('http');
 const express = require('express');
-
+const bodyParser = require('body-parser');
+const adminRouter = require('./routes/adminRouter');
+const shopRouter = require('./routes/shopRouter');
 const app = express();
+app.use(bodyParser.urlencoded({extended: false}));
 
-app.use('/' , (req, res, next) => {
-    console.log("This ALways run");
-    next();
-})
-app.use( '/add-product', (req, res, next) => {
-    res.send('<form><html><head><title>My Form</title></head><body><input type="text"><button>Submit</button></body></html></form>');
-    res.send('<H1>The Add Product<H1>')
-    next();
-})
+app.use('/admin', adminRouter);
+app.use('/shop', shopRouter);
 
 app.use( '/', (req, res, next) => {
-      console.log("In The middleware");
       res.send('<H1>Hello from express<H1>')
-      next(); //this allows the request to continue to the most middleware in line
-})
+    //   next(); //this allows the request to continue to the most middleware in line
+});
 
 
 
