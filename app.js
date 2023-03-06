@@ -9,10 +9,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/admin', adminRouter);
 app.use('/shop', shopRouter);
 
-app.use( '/', (req, res, next) => {
-      res.send('<H1>Hello from express<H1>')
-    //   next(); //this allows the request to continue to the most middleware in line
-});
+
+
+app.use('*', (req,res)=>{
+    res.send('Error : 404 not found');
+})
 
 
 
