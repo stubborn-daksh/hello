@@ -54,4 +54,15 @@
 13. exported the db-config
 14. npm run start again  -> we could see connection successfull message 
 15. MySQL Crud Operations
+      GET Method ->
+      Retrieve the data from db
+      examples 
+       -> get all users
+       -> get all comments
+       -> get details of a user description
 
+       1. 1 get all the records
+       2. 2 get data for a certain record based on codnition
+        ->details for the user whose id =10
+
+      3. -> localhost:3000/users/comments
