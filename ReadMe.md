@@ -14,3 +14,5 @@ it's all about middleware
 Request -> Middleware [(req,res,next) => { ... } ] , next() -> res.send() -> Response
 use() is used to allow add a middleware function
 
+  //another way to importing a views folder on the project
+ res.sendFile(path.join(__dirname, '../views/add-product.html'));

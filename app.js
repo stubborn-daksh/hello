@@ -12,19 +12,10 @@ app.use('/admin', adminRouter);
 app.use('/shop', shopRouter);
 
 
+const errorController = require('./controllers/errorController')
 
+app.use('/',errorController.get404);
+app.use('*', errorController.AllError);
 
-// app.use('/', (req,res) => {
-//     res.send('Welcome to ExpressJs....')
-// })
-
-//error code always write on the last of the page
-app.use((req,res,next)=> {
-    res.status(404).sendFile(path.join(__dirname, 'views/Page-not-found.html'))
-})
-// app.use('*', (req,res)=>{
-//     res.send('Error : 404 not found');
-// })
-
-
+exports.errorController = errorController;
 app.listen(3000);
