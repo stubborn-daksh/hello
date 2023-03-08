@@ -29,3 +29,4 @@ db.sequelize.sync()
 .then( ()=> {console.log('Your table is created successfully')})
 
 module.exports = db;
+

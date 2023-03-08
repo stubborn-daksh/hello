@@ -4,7 +4,9 @@ const model = require('./models/index')
 var userController = require('./controllers/UserController')
 const port = 3000;
 
-app.get('/user', userController.addUser);
+app.get('/add', userController.addUser);
+app.get('/crud', userController.crudOperation);
+app.get('/query', userController.queryData);
 
 app.get('/', (req,res,next)=>{
     res.send('Sequelize Module of Node.js');

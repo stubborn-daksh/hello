@@ -9,9 +9,11 @@ module.exports = (sequelize, DataTypes) => {
         },
         gender: {
             type: DataTypes.STRING
-        },
-        timestamps: false //createdAt: false, UpdatedAt : false
+        }
     });
 
-    return sequelize.define();
+    return Users;
 }
+
+
+//logging: false is used for -> jo br br query console me aata hh usko rokhne ke liye 
