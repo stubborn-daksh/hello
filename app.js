@@ -7,6 +7,7 @@ const port = 3000;
 app.get('/add', userController.addUser);
 app.get('/crud', userController.crudOperation);
 app.get('/query', userController.queryData);
+app.get('/finder', userController.finderData);
 
 app.get('/', (req,res,next)=>{
     res.send('Sequelize Module of Node.js');

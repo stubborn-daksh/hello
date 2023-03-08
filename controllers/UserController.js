@@ -132,11 +132,27 @@ var queryData = async (req, res) => {
    res.status(200).json(response);
 }
 
+var finderData = async (req,res) => {
+  //  let data = await Users.findAll({}); => returns all data
+  //  let data = await Users.findOne({}); //=> returns single data
+  //  let data = await Users.findByPk(5);      //=> find by primary key 
+  //   let data = await Users.findAndCountAll({}); //=> returns all data and count
+    let [data, created] = await Users.findOrCreate({
+        where:{name:'Sanju'},
+        default : {name:'Sanju',email:'sanju@gmail.com',gender:'male'}
+    }); //=> if data is not present then it creates a data
+    let response = {
+        data : data,
+        add : created
+       }
+       res.status(200).json(response);
+}
 
 module.exports = {
     addUser,
     crudOperation,
-    queryData
+    queryData,
+    finderData
 }
 
 //build method is used for create a data 
