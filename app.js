@@ -6,6 +6,10 @@ const port = process.env.port || 3000;
 const homeRoutes = require('./routers/home');
 app.set('view engine','ejs');
 
+//for using a body-parser in project it must be needed .
+app.use(bodyParser.urlencoded({ extended:false }));
+app.use(bodyParser.json());
+
 
 //database-connection
 mongoose.connect("mongodb://127.0.0.1:27017/studentDetails",{useNewUrlParser: true})
